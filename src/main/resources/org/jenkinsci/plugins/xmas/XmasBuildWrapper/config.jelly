@@ -1,0 +1,10 @@
+<j:jelly xmlns:j="jelly:core" xmlns:f="/lib/form">
+  <f:entry title="${%Force fail}" field="force">
+    <f:checkbox id="xmas-force"/>
+  </f:entry>
+  <script>
+  Behaviour.addLoadEvent(function() {
+    document.getElementById('xmas-force').parentNode.parentNode.style.display = 'none'
+  })
+  </script>
+</j:jelly>
