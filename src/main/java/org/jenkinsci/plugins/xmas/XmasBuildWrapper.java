@@ -59,11 +59,6 @@ public class XmasBuildWrapper extends BuildWrapper {
         public String getDisplayName() {
             return "X'mas";
         }
-
-        @Override
-        public BuildWrapper newInstance(StaplerRequest req, JSONObject formData) throws hudson.model.Descriptor.FormException {
-            return req.bindJSON(clazz, formData);
-        }
     }
 
     public boolean isXmasWeek(Calendar calendar) {
