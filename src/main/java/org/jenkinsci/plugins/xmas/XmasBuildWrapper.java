@@ -2,6 +2,7 @@ package org.jenkinsci.plugins.xmas;
 
 import hudson.Extension;
 import hudson.Launcher;
+import hudson.console.HyperlinkNote;
 import hudson.model.BuildListener;
 import hudson.model.AbstractBuild;
 import hudson.model.AbstractProject;
@@ -39,7 +40,8 @@ public class XmasBuildWrapper extends BuildWrapper {
             @Override
             public boolean tearDown(@SuppressWarnings("rawtypes") AbstractBuild build, BuildListener listener) throws IOException, InterruptedException {
                 if (isForce() || isXmasWeek(Calendar.getInstance())) {
-                    listener.getLogger().println("爆発しろ！");
+                    listener.annotate(new XmasConsoleNote());
+                    listener.getLogger().println(HyperlinkNote.encodeTo("http://www.youtube.com/watch?v=OTXEF-WVzQQ","爆発しろ！"));
                     return false;
                 }
                 return true;
